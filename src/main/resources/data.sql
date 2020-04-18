@@ -26,22 +26,22 @@ insert into ACTIONS (ACT_ID, USER_ID,SESSION_ID, TIME, TYPE) values ('14' ,'user
 
 
 insert into PROPERTIES (ACT_ID ,TYPE, LOCATION_X, LOCATION_Y) values('1' ,'click','52', '42')
-insert into PROPERTIES (ACT_ID ,TYPE,  viewED_ID) values('2' ,'view','viewid1')
+insert into PROPERTIES (ACT_ID ,TYPE,  VIEWED_ID) values('2' ,'view','viewid1')
 insert into PROPERTIES (ACT_ID ,TYPE,  PAGE_FROM, PAGE_TO) values('3', 'navigate','page1', 'page2')
 
 insert into PROPERTIES (ACT_ID ,TYPE, LOCATION_X, LOCATION_Y) values('4', 'click','52', '42')
-insert into PROPERTIES (ACT_ID ,TYPE,  viewED_ID) values('5','view','viewid12')
+insert into PROPERTIES (ACT_ID ,TYPE,  VIEWED_ID) values('5','view','viewid12')
 insert into PROPERTIES (ACT_ID ,TYPE,  PAGE_FROM, PAGE_TO) values('6','navigate','page12', 'page22')
 
 insert into PROPERTIES (ACT_ID ,TYPE, LOCATION_X, LOCATION_Y) values( '7','click','52', '42')
-insert into PROPERTIES (ACT_ID ,TYPE,  viewED_ID) values('8' ,'view','viewid123')
+insert into PROPERTIES (ACT_ID ,TYPE,  VIEWED_ID) values('8' ,'view','viewid123')
 insert into PROPERTIES (ACT_ID ,TYPE,  PAGE_FROM, PAGE_TO) values('9' ,'navigate','page123', 'page223')
 
 insert into PROPERTIES (ACT_ID ,TYPE, LOCATION_X, LOCATION_Y) values('10', 'click','52', '42')
-insert into PROPERTIES (ACT_ID ,TYPE,  viewED_ID) values('11', 'view','viewid1234')
+insert into PROPERTIES (ACT_ID ,TYPE,  VIEWED_ID) values('11', 'view','viewid1234')
 insert into PROPERTIES (ACT_ID ,TYPE,  PAGE_FROM, PAGE_TO) values('12','navigate','page1234', 'page2234')
 
 insert into PROPERTIES (ACT_ID ,TYPE, LOCATION_X, LOCATION_Y) values('13', 'click','521', '421')
-insert into PROPERTIES (ACT_ID ,TYPE,  viewED_ID) values('14', 'view','viewid12341')
+insert into PROPERTIES (ACT_ID ,TYPE,  VIEWED_ID) values('14', 'view','viewid12341')
 
 

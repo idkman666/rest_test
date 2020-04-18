@@ -21,7 +21,7 @@ public class Properties {
 
     @Column(name = "LOCATION_Y")
     private Long locationY;
-    @Column(name = "viewED_ID")
+    @Column(name = "VIEWED_ID")
     private String viewedId;
     @Column(name = "PAGE_FROM")
     private String pageFrom;

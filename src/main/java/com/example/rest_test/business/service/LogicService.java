@@ -1,31 +1,18 @@
 package com.example.rest_test.business.service;
-
 import com.example.rest_test.business.domain.Actions_domain;
 import com.example.rest_test.business.domain.Logs_domain;
 import com.example.rest_test.business.domain.Prop_domain;
 import com.example.rest_test.entity.Actions;
 import com.example.rest_test.entity.Logs;
 import com.example.rest_test.entity.Properties;
-import com.example.rest_test.entity.Types;
 import com.example.rest_test.repo.IActionsRepo;
 import com.example.rest_test.repo.ILogsRepo;
 import com.example.rest_test.repo.IPropRepo;
-import org.apache.juli.logging.Log;
-import org.aspectj.weaver.ast.Var;
-import org.hibernate.id.GUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.sql.Time;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Service
@@ -105,44 +92,6 @@ public class LogicService {
             logs_domain.setSessionId(sessionId);
             logs_domain.setUserId(log.getUserId());
             for (Actions a : act) {
-                Properties properties = this.propRepo.findByActId(a.getActId());
-                Prop_domain prop_domain = new Prop_domain();
-                fillPropertiesParms(properties, prop_domain);
-                Actions_domain actions_domain = new Actions_domain();
-                mapToActionDomain(a,actions_domain,prop_domain);
-                adList.add(actions_domain);//actions
-            }
-            logs_domain.setActions(adList);
-            logsList.add(logs_domain);
-        }
-
-        return finalExceptionCheck(logsList);
-    }
-
-    //get logs using time
-    public Iterable<Logs_domain> getLogsByTime(String time) {
-        Iterable<Actions> actions = this.actionsRepo.findByTime(time);
-        List<Logs_domain> logsList = new ArrayList<>();
-        //since every userid is unique, add all userid from actions to hasset to just an array of unique userid
-        HashSet<String> userIdList = new HashSet<>();
-        //get userid for all logs from actions
-        //then get actions again, but this time, grab actions with all types
-        for (Actions action : actions) {
-            userIdList.add(action.getUserId());
-        }
-
-        for (String userId : userIdList) {
-            List<Actions_domain> adList = new ArrayList<>();
-            //get actions list form each log using userid
-            Iterable<Actions> act = this.actionsRepo.findByUserId(userId);
-            //getting log using userid
-            Logs log = this.logsRepo.findByUserId(userId);
-            //mapping to logs_domain
-            Logs_domain logs_domain = new Logs_domain();
-            logs_domain.setSessionId(log.getSessionId());
-            logs_domain.setUserId(log.getUserId());
-            for (Actions a : act) {
-               //only one unique property is brought from database
                 Properties properties = this.propRepo.findByActId(a.getActId());
                 Prop_domain prop_domain = new Prop_domain();
                 fillPropertiesParms(properties, prop_domain);
