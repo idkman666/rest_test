@@ -45,4 +45,11 @@
 | locationX     |               | pagefrom  |
 | locationY     | viewedId      |  pageTo   |
 
-## Scability
+## Scability questions:
+ - One trick to make this api better would be to make method calls async. This way multiple calls from multiple users can be made to this api.
+ - The session data could be saved to a different database instead of using local memory, so when the system resumes, other prcoess can grab the data.
+ - You could also add logic that handles shutdowns, so when a shutdown request comes in, new request can be gracefully rejected while the current process is still running. 
+
+## Few Improvements I could have made
+ - Refactoring. Feels like there is a lot of repeating codes, but keeping methods separate could make it more managable down the road. 
+ - Foreign key issues that affected savingToDatabase methods. Could not create new log object. 
